@@ -1,0 +1,11 @@
+/* Write your T-SQL query statement below */
+select w1.id
+from Weather w1, Weather w2 
+where w1.temperature > w2.temperature
+and datediff(day, w2.recordDate, w1.recordDate) = 1
+
+
+
+-- SELECT column_name(s)
+-- FROM table1 T1, table1 T2
+-- WHERE condition;
