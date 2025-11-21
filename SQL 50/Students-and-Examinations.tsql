@@ -7,16 +7,3 @@ LEFT JOIN Examinations e
     AND e.subject_name = sb.subject_name
 group by st.student_id, st.student_name, sb.subject_name
 order by st.student_id, sb.subject_name
-
-
-
--- SELECT
---     st.student_id,
---     st.student_name,
---     sb.subject_name,
---     COUNT(e.student_id) AS attended_exams
--- FROM Examinations e
--- JOIN Students st ON st.student_id = e.student_id
--- JOIN Subjects sb ON sb.subject_name = e.subject_name
--- GROUP BY st.student_id, st.student_name, sb.subject_name
--- ORDER BY st.student_id, sb.subject_name;
