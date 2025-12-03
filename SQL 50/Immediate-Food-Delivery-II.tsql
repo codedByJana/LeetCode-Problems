@@ -1,0 +1,16 @@
+1/* Write your T-SQL query statement below */
+2with first_orders as (
+3    select
+4        customer_id,
+5        min(order_date) as first_order_date
+6    from Delivery
+7    group by customer_id
+8)
+9select round(sum(case when d.order_date = d.customer_pref_delivery_date then 1.0 else 0.0 end)
+10           * 100.0 / count(*),
+11           2
+12       ) as immediate_percentage
+13from Delivery d
+14join first_orders f
+15  on d.customer_id = f.customer_id
+16 and d.order_date  = f.first_order_date;
