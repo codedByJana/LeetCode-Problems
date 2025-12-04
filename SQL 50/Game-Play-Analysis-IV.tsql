@@ -1,0 +1,14 @@
+1/* Write your T-SQL query statement below */
+2select round(count(distinct t.player_id)*1.0
+3        /
+4        (select count(distinct player_id) from activity), 2) 
+5        as fraction
+6
+7from Activity t
+8where t.event_date =
+9                    dateadd(day, 1 , 
+10                    (select min(y.event_date)
+11                    from Activity y 
+12                    where y.player_id = t.player_id
+13                                    ) )
+14
