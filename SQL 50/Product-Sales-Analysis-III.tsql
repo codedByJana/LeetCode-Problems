@@ -1,0 +1,8 @@
+1/* Write your T-SQL query statement below */
+2select p.product_id, 
+3f.first_year, p.quantity, p.price
+4from Sales p
+5join (select product_id, min(year) as first_year from Sales group by product_id) f 
+6on p.product_id = f.product_id
+7and p.year = f.first_year 
+8
