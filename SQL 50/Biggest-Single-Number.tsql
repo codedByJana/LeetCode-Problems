@@ -1,0 +1,7 @@
+1/* Write your T-SQL query statement below */
+2select (select top 1 num
+3        from MyNumbers 
+4        group by num
+5        having count(num) = 1
+6        order by num desc) as num
+7
