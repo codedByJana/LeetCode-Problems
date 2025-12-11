@@ -1,0 +1,4 @@
+1/* Write your T-SQL query statement below */
+2select user_id, count(*) as followers_count
+3from Followers 
+4group by user_id
